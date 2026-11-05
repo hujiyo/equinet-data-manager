@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "equinet-data-manager"
+version = "1.0.0"
+description = "EquiNet 的独立行情数据库与数据维护工具"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.0",
+    "pandas>=2.2",
+]
+
+[project.optional-dependencies]
+# 抓数与修复需要联网数据源；只读使用（训练侧）不需要这些
+fetch = [
+    "baostock>=0.9.4",
+    "akshare>=1.19",
+]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+equinet-data-manager = "equinet_data_manager.__main__:main"
+
+[tool.setuptools]
+packages = ["equinet_data_manager"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

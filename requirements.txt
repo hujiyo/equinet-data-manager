@@ -1,0 +1,14 @@
+# equinet-data-manager 依赖（pip 层）
+#
+# 这是「数据维护」这一侧的独立依赖清单，与 EquiNet 的 requirements.txt 解耦：
+# EquiNet 只需要 numpy + pandas 读 SQLite，不需要 baostock / akshare。
+#
+# 安装：
+#     pip install -r requirements.txt
+#
+# 版本与 principal 环境（conda activate equinet）对齐，避免两套环境解析出不同结果。
+
+numpy==2.5.3
+pandas==3.0.6
+baostock==0.9.4
+akshare==1.19.1
